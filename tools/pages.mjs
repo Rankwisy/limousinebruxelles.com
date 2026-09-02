@@ -369,7 +369,7 @@ const LANDINGS = [
     serviceName: 'Transport pour événements et groupes à Bruxelles',
     lead: {
       title: 'Cinquante personnes, un seul point de rendez-vous',
-      img: 'autocar', imgAlt: 'Autocar de grand tourisme pour le transport de groupes lors d’un événement en Belgique',
+      img: 'autocarGP', imgAlt: 'Autocar VIP avec chauffeur devant les façades de la Grand-Place à Bruxelles',
       body: [
         'Organiser un événement, c’est déjà beaucoup. Le transport ne devrait pas s’ajouter à la liste des inquiétudes. Nous prenons en charge l’acheminement de vos participants, du premier accueil au dernier retour.',
         'Navettes entre les hôtels et le lieu de l’événement, transferts depuis les aéroports et les gares, rotations pendant la journée, retour groupé le soir&nbsp;: chaque rotation est planifiée avec vous, puis exécutée à l’heure.',
@@ -474,7 +474,7 @@ const VEHICLES = [
     eyebrow: 'Minibus',
     h1: 'Location de minibus à Bruxelles',
     sub: 'Jusqu’à 8 places avec chauffeur professionnel — le bon format pour les groupes réduits.',
-    img: 'minibus', alt: 'Minibus blanc avec chauffeur pour la location de groupe à Bruxelles',
+    img: 'minibus', alt: 'Minibus noir avec chauffeur pour la location de groupe à Bruxelles',
     serviceName: 'Location de minibus avec chauffeur à Bruxelles',
     priceNote: '<strong>Tarif indicatif&nbsp;:</strong> environ <strong>350 € par jour</strong> pour un minibus de 8 places. Le montant final dépend de la durée, du nombre de passagers et du trajet exact. <a href="contact.html">Demandez votre devis personnalisé</a>.',
     lead: {
@@ -510,12 +510,12 @@ const VEHICLES = [
     eyebrow: 'Autocar & Bus VIP',
     h1: 'Location d’autocar et de bus VIP en Belgique',
     sub: 'Environ 50 places avec chauffeur : excursions, congrès, événements et transports d’entreprise.',
-    img: 'autocar', alt: 'Autocar de grand tourisme sur une route belge pour le transport de groupes',
+    img: 'autocar', alt: 'Autocar de grand tourisme avec chauffeur, immatriculé en Belgique',
     serviceName: 'Location d’autocar et de bus VIP en Belgique',
     priceNote: '<strong>Tarif indicatif&nbsp;:</strong> environ <strong>600 € par jour</strong> pour un autocar d’environ 50 places. Le montant final dépend de la durée, du kilométrage et du trajet exact. <a href="contact.html">Demandez votre devis personnalisé</a>.',
     lead: {
       title: 'Tout le groupe ensemble, dans un seul véhicule',
-      img: 'autocarInt', imgAlt: 'Intérieur d’un autocar VIP avec sièges en cuir matelassé',
+      img: 'autocarInt', imgAlt: 'Intérieur d’un autocar VIP : sièges en cuir matelassé et surpiqûres dorées',
       body: [
         'Quand le groupe dépasse la douzaine de personnes, l’autocar devient la solution la plus simple, la plus économique et la plus confortable. Un seul point de rendez-vous, un seul horaire, un seul chauffeur.',
         'Nos autocars d’environ 50 places offrent des sièges inclinables, la climatisation et de vastes soutes à bagages. Ils conviennent aussi bien à une excursion d’une journée vers Bruges ou les Ardennes qu’à un transfert de congressistes entre un hôtel et un centre de conférences.',
@@ -657,7 +657,7 @@ function pricingPage() {
     eyebrow: 'Tarifs indicatifs', small: true,
     h1: 'Tarifs indicatifs',
     sub: 'Des ordres de grandeur transparents, et un devis précis établi selon votre trajet.',
-    img: 'autocar', alt: 'Autocar de grand tourisme, tarifs de location avec chauffeur en Belgique',
+    img: 'autocarGP', alt: 'Autocar de grand tourisme à Bruxelles, tarifs de location avec chauffeur',
     crumbs: breadcrumb(trail),
     secondary: ['notre-flotte.html', 'Voir la flotte'],
   })}

@@ -114,7 +114,7 @@ export const FLEET = [
   {
     href: 'location-minibus-bruxelles.html',
     img: 'minibus',
-    alt: 'Minibus blanc avec chauffeur pour le transport de groupes en Belgique',
+    alt: 'Minibus noir avec chauffeur stationné dans une rue de Bruxelles',
     badge: 'Jusqu’à 8 places',
     kicker: 'Minibus',
     title: 'Minibus — les groupes réduits, sans compromis',
@@ -124,7 +124,7 @@ export const FLEET = [
   {
     href: 'location-autocar-belgique.html',
     img: 'autocar',
-    alt: 'Autocar de grand tourisme pour le transport de groupes en Belgique',
+    alt: 'Autocar de grand tourisme blanc avec chauffeur, immatriculé en Belgique',
     badge: 'Environ 50 places',
     kicker: 'Autocar / Bus VIP',
     title: 'Autocar & Bus VIP — les grands groupes',

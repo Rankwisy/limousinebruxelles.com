@@ -107,11 +107,30 @@ zones tactiles ≥ 44 px, et respect de `prefers-reduced-motion`.
 
 ## Images
 
-Photographies **Unsplash** (Unsplash License — usage commercial autorisé, sans attribution obligatoire),
-servies directement depuis `images.unsplash.com`. La liste est centralisée dans la constante `PHOTOS`
-de `tools/layout.mjs` : remplacer un identifiant suffit à changer la photo partout.
-Le jour où des photos réelles de la flotte seront disponibles, il suffira de les déposer dans `img/`
-et d'adapter la fonction `photo()`.
+Deux sources, déclarées dans la constante `PHOTOS` de `tools/layout.mjs`.
+
+**Fichiers locaux (`img/`)** — véhicules de groupe. Générés par IA pour représenter des
+véhicules réellement utilisés en Belgique, avec plaque d'immatriculation belge
+(1-ABC-123, caractères rouges sur fond blanc, bande UE « B ») :
+
+| Fichier | Sujet |
+|---|---|
+| `autocar-vip-bruxelles` | Autocar de grand tourisme sans livrée, rue de Bruxelles |
+| `autocar-grand-place-bruxelles` | Autocar devant les façades de la Grand-Place |
+| `minibus-bruxelles` | Minibus noir type Sprinter, rue bruxelloise |
+| `autocar-interieur` | Intérieur d'autocar, cuir matelassé et surpiqûres dorées |
+
+Chaque visuel existe en deux largeurs (`-800.jpg` et `-1600.jpg`) servies via `srcset`.
+
+> **Ce sont des images d'illustration, pas des photos de la flotte réelle.**
+> Elles doivent être remplacées par de vraies photographies des véhicules dès que
+> celles-ci sont disponibles : déposer les fichiers dans `img/` en respectant le
+> suffixe `-800` / `-1600`, aucune autre modification n'est nécessaire.
+
+**Photographies Unsplash** — berlines, chauffeur, intérieurs, décors bruxellois
+(Unsplash License : usage commercial autorisé, sans attribution obligatoire), servies
+depuis `images.unsplash.com`. Remplacer un identifiant dans `PHOTOS` suffit à changer
+la photo sur tout le site.
 
 ## Déploiement
 

@@ -16,9 +16,10 @@ const PHOTOS = {
   hero:        'photo-1610099610040-ab19f3a5ec35',
   classeS:     'photo-1692632146184-08b6f4828a23',
   classeV:     'photo-1765461734605-34657fa04db2',
-  minibus:     'photo-1576793048000-494aaa93d160',
-  autocar:     'photo-1605068263928-dc295689add1',
-  autocarInt:  'photo-1778911276681-6fc6d31832f9',
+  minibus:     { local: 'img/minibus-bruxelles', w: 1600, h: 1195 },
+  autocar:     { local: 'img/autocar-vip-bruxelles', w: 1600, h: 1195 },
+  autocarGP:   { local: 'img/autocar-grand-place-bruxelles', w: 1600, h: 1195 },
+  autocarInt:  { local: 'img/autocar-interieur', w: 1600, h: 1195 },
   cuir:        'photo-1652860316277-370ca5b1b1df',
   chauffeur:   'photo-1558222209-134191edfe0d',
   mariage:     'photo-1765292783735-9ec7213b1df1',
@@ -35,6 +36,14 @@ const U = 'https://images.unsplash.com/';
 export function photo(key, alt, { w = 1200, ratio = '', cls = '', eager = false, sizes = '100vw' } = {}) {
   const id = PHOTOS[key];
   if (!id) throw new Error(`Photo inconnue : ${key}`);
+  const loading = ` loading="${eager ? 'eager' : 'lazy'}" decoding="async"${eager ? ' fetchpriority="high"' : ''}`;
+
+  // Fichier servi par le site lui-même (deux tailles).
+  if (id.local) {
+    return `<img src="${id.local}-1600.jpg" srcset="${id.local}-800.jpg 800w, ${id.local}-1600.jpg 1600w" sizes="${sizes}"
+        alt="${esc(alt)}" width="${id.w}" height="${id.h}"${cls ? ` class="${cls}"` : ''}${loading}>`;
+  }
+
   const crop = ratio ? `&ar=${ratio}&fit=crop&crop=entropy` : '&fit=crop';
   const src = (px) => `${U}${id}?auto=format&q=72&w=${px}${crop}`;
   const widths = [640, 1000, 1600, 2000].filter((px) => px <= w * 1.7);
@@ -44,7 +53,9 @@ export function photo(key, alt, { w = 1200, ratio = '', cls = '', eager = false,
 }
 
 export function photoUrl(key, w = 1200) {
-  return `${U}${PHOTOS[key]}?auto=format&q=72&w=${w}&fit=crop`;
+  const id = PHOTOS[key];
+  if (id.local) return `${SITE.domain}/${id.local}-1600.jpg`;
+  return `${U}${id}?auto=format&q=72&w=${w}&fit=crop`;
 }
 
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
