@@ -3,7 +3,7 @@ import { SITE, photo, photoUrl, layout, ctaBand, trustBar, faqSection, faqSchema
 import { hero, choiceSection, servicesSection, fleetSection, driversSection, pricingSection, amenitiesSection, whySection, contactSection, SERVICES, FLEET, CHOICE_ROWS, AMENITIES } from './blocks.mjs';
 
 const HOME_FAQ = [
-  ['S’agit-il d’un bus ou d’une limousine&nbsp;?', 'Les deux. Belgium Limousine Services propose plusieurs solutions selon le nombre de passagers et le type de trajet&nbsp;: limousine, voiture avec chauffeur, minivan Mercedes Classe V, minibus jusqu’à 8 places et autocar d’environ 50 places. Décrivez-nous votre déplacement et nous vous conseillons le véhicule le plus adapté.'],
+  ['S’agit-il d’un bus ou d’une limousine&nbsp;?', `Les deux. ${SITE.brand} propose plusieurs solutions selon le nombre de passagers et le type de trajet&nbsp;: limousine, voiture avec chauffeur, minivan Mercedes Classe V, minibus jusqu’à 8 places et autocar d’environ 50 places. Décrivez-nous votre déplacement et nous vous conseillons le véhicule le plus adapté.`],
   ['Combien coûte la location d’un véhicule avec chauffeur à Bruxelles&nbsp;?', 'À titre indicatif&nbsp;: un minibus de 8 places revient à environ 350 € par jour et un autocar d’environ 50 places à environ 600 € par jour. Pour les limousines et les voitures avec chauffeur, le tarif dépend du trajet. Le prix final varie selon la durée, le nombre de passagers et le trajet exact&nbsp;: demandez un devis personnalisé.'],
   ['Combien de passagers pouvez-vous transporter&nbsp;?', 'De 1 à environ 50 passagers. La Mercedes Classe S accueille jusqu’à 3 passagers, la Mercedes Classe V jusqu’à 7, le minibus jusqu’à 8 places et l’autocar environ 50 places. Pour les groupes plus importants, nous coordonnons plusieurs véhicules.'],
   ['Intervenez-vous en dehors de Bruxelles&nbsp;?', 'Oui. Nous assurons des trajets dans toute la Belgique — Anvers, Gand, Bruges, Liège, Namur, Charleroi, la côte, les Ardennes — ainsi que vers les pays limitrophes (France, Pays-Bas, Luxembourg, Allemagne) sur demande.'],
@@ -16,7 +16,7 @@ const HOME_FAQ = [
 /* ---------- Accueil ---------- */
 function homePage() {
   const body = `${hero({
-    eyebrow: 'Bruxelles · Belgique · Depuis 2009',
+    eyebrow: 'Bruxelles · Belgique',
     h1: 'Location de <em>Limousines</em>, Minibus et Autocars avec Chauffeur à Bruxelles',
     sub: 'Voyagez avec élégance, confort et sécurité partout en Belgique.',
     alt: 'Mercedes Classe S noire avec chauffeur stationnée dans une rue pavée de Bruxelles',
@@ -29,9 +29,9 @@ function homePage() {
     <div class="wrap">
       <div class="split rv">
         <div>
-          <p class="eyebrow">Belgium Limousine Services</p>
+          <p class="eyebrow">${SITE.name}</p>
           <h2>Un chauffeur, un véhicule, une exigence&nbsp;: la vôtre</h2>
-          <p class="lead">Les chauffeurs expérimentés de Belgium Limousine Services vous conduisent où vous le souhaitez en limousine, minibus ou autocar VIP&nbsp;: aéroport, mariage, événement professionnel, transfert privé et transport de groupe.</p>
+          <p class="lead">Les chauffeurs expérimentés d’${SITE.brand} vous conduisent où vous le souhaitez en limousine, minibus ou autocar VIP&nbsp;: aéroport, mariage, événement professionnel, transfert privé et transport de groupe.</p>
           <p>Basés à Bruxelles, nous mettons à votre disposition des véhicules haut de gamme et des chauffeurs professionnels pour tous vos déplacements en Belgique. Que vous soyez seul pour un rendez-vous d’affaires, en famille pour un vol matinal ou cinquante pour un congrès, nous avons le véhicule qu’il faut — et la personne qu’il faut au volant.</p>
           <div class="btn-row" style="margin-top:26px">
             <a href="nos-services.html" class="btn btn-outline">Nos services</a>
@@ -576,7 +576,7 @@ function fleetHub() {
     eyebrow: 'Notre flotte', small: true,
     h1: 'Notre flotte de véhicules avec chauffeur',
     sub: 'De la berline Mercedes Classe S à l’autocar de 50 places : le bon véhicule pour le bon nombre de passagers.',
-    img: 'classeV', alt: 'Mercedes Classe V noire, minivan de luxe de la flotte Belgium Limousine Services',
+    img: 'classeV', alt: `Mercedes Classe V noire, minivan de luxe de la flotte ${SITE.brand}`,
     crumbs: breadcrumb(trail),
     secondary: ['tarifs.html', 'Voir les tarifs'],
   })}
@@ -693,7 +693,7 @@ function pricingPage() {
     keywords: 'prix location minibus Bruxelles, tarif autocar Belgique, prix limousine avec chauffeur Bruxelles',
     schema: [breadcrumbSchema(trail), {
       '@type': 'OfferCatalog',
-      name: 'Tarifs indicatifs — Belgium Limousine Services',
+      name: `Tarifs indicatifs — ${SITE.brand}`,
       itemListElement: [
         { '@type': 'Offer', name: 'Minibus jusqu’à 8 places avec chauffeur', price: '350', priceCurrency: 'EUR', description: 'Tarif indicatif par jour, chauffeur inclus.' },
         { '@type': 'Offer', name: 'Autocar d’environ 50 places avec chauffeur', price: '600', priceCurrency: 'EUR', description: 'Tarif indicatif par jour, chauffeur inclus.' },
@@ -748,7 +748,7 @@ function contactPage() {
 
   return layout({
     slug: 'contact.html',
-    title: 'Contact et Devis Gratuit | Belgium Limousine Services',
+    title: 'Contact et Devis | Aurum — Limousine Bruxelles',
     description: 'Demandez votre devis gratuit pour une limousine, un minibus ou un autocar avec chauffeur à Bruxelles. Réponse sous 24 h ouvrées par e-mail.',
     keywords: 'devis limousine Bruxelles, contact location bus Bruxelles, réserver chauffeur privé Bruxelles',
     schema: [breadcrumbSchema(trail), { '@type': 'ContactPage', '@id': `${SITE.domain}/contact.html#contact` }],
@@ -791,8 +791,8 @@ function thanksPage() {
 
   return layout({
     slug: 'merci.html',
-    title: 'Merci pour votre demande | Belgium Limousine Services',
-    description: 'Votre demande de devis a bien été envoyée à Belgium Limousine Services. Nous vous répondons sous 24 h ouvrées.',
+    title: 'Merci pour votre demande | Aurum',
+    description: 'Votre demande de devis a bien été envoyée à Aurum — Limousine Bruxelles. Nous vous répondons sous 24 h ouvrées.',
     body,
   }).replace('<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">', '<meta name="robots" content="noindex, follow">');
 }
@@ -802,7 +802,7 @@ function legalPage({ slug, title, description, h1, sections }) {
   const trail = [['index.html', 'Accueil'], [slug, h1]];
   const body = `${hero({
     eyebrow: 'Informations légales', small: true,
-    h1, sub: description, img: 'bruxelles', alt: 'Bruxelles, siège de Belgium Limousine Services',
+    h1, sub: description, img: 'bruxelles', alt: 'Bruxelles, siège d’Aurum — Limousine Bruxelles',
     crumbs: breadcrumb(trail),
     primary: ['contact.html', 'Nous contacter'],
     secondary: ['index.html', 'Retour à l’accueil'],
@@ -821,12 +821,12 @@ function legalPages() {
   return [
     legalPage({
       slug: 'mentions-legales.html',
-      title: 'Mentions légales | Belgium Limousine Services',
-      description: 'Mentions légales du site limousinebruxelles.com, exploité par Belgium Limousine Services, Bruxelles, Belgique.',
+      title: 'Mentions légales | Aurum — Limousine Bruxelles',
+      description: 'Mentions légales du site limousinebruxelles.com, exploité par Aurum — Limousine Bruxelles, Belgique.',
       h1: 'Mentions légales',
       sections: `
         <h2>Éditeur du site</h2>
-        <p>Le présent site <strong>limousinebruxelles.com</strong> est édité par <strong>Belgium Limousine Services</strong>, prestataire de services de location de véhicules avec chauffeur établi à Bruxelles, Belgique.</p>
+        <p>Le présent site <strong>limousinebruxelles.com</strong> est édité par <strong>Aurum — Limousine Bruxelles</strong>, prestataire de services de location de véhicules avec chauffeur établi à Bruxelles, Belgique.</p>
         <p>Contact&nbsp;: <a href="mailto:${SITE.email}">${SITE.email}</a></p>
         <h2>Activité</h2>
         <p>Location de limousines, de voitures avec chauffeur, de minivans, de minibus et d’autocars avec chauffeur professionnel, à Bruxelles et dans toute la Belgique, ainsi que vers les pays limitrophes sur demande.</p>
@@ -838,20 +838,20 @@ function legalPages() {
         <h2>Tarifs et disponibilité</h2>
         <p>Les tarifs mentionnés sur ce site sont <strong>indicatifs</strong>. Ils ne constituent pas une offre contractuelle. Le prix définitif est communiqué dans le devis personnalisé établi après réception de votre demande, en fonction de la durée, du nombre de passagers et du trajet exact.</p>
         <h2>Limitation de responsabilité</h2>
-        <p>Belgium Limousine Services s’efforce de maintenir les informations de ce site exactes et à jour, sans pouvoir garantir l’absence totale d’erreurs ou d’omissions. Les informations sont fournies à titre indicatif et peuvent être modifiées à tout moment.</p>
+        <p>Aurum s’efforce de maintenir les informations de ce site exactes et à jour, sans pouvoir garantir l’absence totale d’erreurs ou d’omissions. Les informations sont fournies à titre indicatif et peuvent être modifiées à tout moment.</p>
         <h2>Droit applicable</h2>
         <p>Le présent site et les prestations qui y sont décrites sont soumis au droit belge. Tout litige relève de la compétence des juridictions belges.</p>
       `,
     }),
     legalPage({
       slug: 'politique-de-confidentialite.html',
-      title: 'Politique de confidentialité | Belgium Limousine Services',
+      title: 'Politique de confidentialité | Aurum',
       description: 'Politique de confidentialité et traitement des données personnelles sur limousinebruxelles.com, conformément au RGPD.',
       h1: 'Politique de confidentialité',
       sections: `
-        <p class="lead">Belgium Limousine Services attache une grande importance à la protection de vos données personnelles. Cette politique explique quelles données nous collectons, pourquoi, et quels sont vos droits.</p>
+        <p class="lead">Aurum attache une grande importance à la protection de vos données personnelles. Cette politique explique quelles données nous collectons, pourquoi, et quels sont vos droits.</p>
         <h2>Responsable du traitement</h2>
-        <p>Belgium Limousine Services, Bruxelles, Belgique. Contact&nbsp;: <a href="mailto:${SITE.email}">${SITE.email}</a></p>
+        <p>Aurum — Limousine Bruxelles, Bruxelles, Belgique. Contact&nbsp;: <a href="mailto:${SITE.email}">${SITE.email}</a></p>
         <h2>Données collectées</h2>
         <p>Nous collectons uniquement les données que vous nous transmettez volontairement via le formulaire de demande de devis ou par e-mail&nbsp;:</p>
         <ul>

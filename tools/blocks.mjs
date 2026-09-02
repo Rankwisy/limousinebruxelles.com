@@ -36,11 +36,11 @@ export function choiceSection() {
       <div class="sec-head rv">
         <p class="eyebrow">La question que tout le monde nous pose</p>
         <h2>S’agit-il d’un bus ou d’une limousine&nbsp;?</h2>
-        <p class="lead">Les deux — et bien plus encore. Belgium Limousine Services n’est pas limité à un seul type de véhicule&nbsp;: nous proposons <strong>plusieurs solutions selon le nombre de passagers et le type de trajet</strong>. Limousine, voiture avec chauffeur, minivan, minibus et autocar. Vous nous décrivez votre déplacement, nous vous conseillons le véhicule le plus adapté.</p>
+        <p class="lead">Les deux — et bien plus encore. ${SITE.brand} n’est pas limité à un seul type de véhicule&nbsp;: nous proposons <strong>plusieurs solutions selon le nombre de passagers et le type de trajet</strong>. Limousine, voiture avec chauffeur, minivan, minibus et autocar. Vous nous décrivez votre déplacement, nous vous conseillons le véhicule le plus adapté.</p>
       </div>
       <div class="tbl-scroll rv">
         <table class="cmp">
-          <caption class="hp">Comparatif des véhicules avec chauffeur proposés par Belgium Limousine Services</caption>
+          <caption class="hp">Comparatif des véhicules avec chauffeur proposés par ${SITE.brand}</caption>
           <thead>
             <tr><th scope="col">Solution</th><th scope="col">Capacité</th><th scope="col">Idéal pour</th><th scope="col">Véhicule type</th></tr>
           </thead>
@@ -268,8 +268,8 @@ export function whySection({ dark = false } = {}) {
     <div class="wrap">
       <div class="sec-head rv">
         <p class="eyebrow">Pourquoi nous choisir</p>
-        <h2>Pourquoi choisir Belgium Limousine Services&nbsp;?</h2>
-        <p class="lead">Les chauffeurs expérimentés de Belgium Limousine Services vous conduisent où vous le souhaitez en limousine, minibus ou autocar VIP&nbsp;: aéroport, mariage, événement professionnel, transfert privé et transport de groupe.</p>
+        <h2>Pourquoi choisir ${SITE.brand}&nbsp;?</h2>
+        <p class="lead">Les chauffeurs expérimentés d’${SITE.brand} vous conduisent où vous le souhaitez en limousine, minibus ou autocar VIP&nbsp;: aéroport, mariage, événement professionnel, transfert privé et transport de groupe.</p>
       </div>
       <div class="grid g-3 rv">
         ${WHY.map(([i, t, d]) => `<article class="card${dark ? ' card-dark' : ''}">

@@ -1,6 +1,8 @@
-# limousinebruxelles.com — Belgium Limousine Services
+# Aurum — Limousine Bruxelles
 
-Site vitrine statique (HTML/CSS/JS, sans framework ni dépendance) pour **Belgium Limousine Services** :
+**limousinebruxelles.com**
+
+Site vitrine statique (HTML/CSS/JS, sans framework ni dépendance) pour **Aurum — Limousine Bruxelles** :
 location de limousines, voitures avec chauffeur, minivans, minibus et autocars à Bruxelles et en Belgique.
 
 Site entièrement en français. Contact unique : **info@limousinebruxelles.com**

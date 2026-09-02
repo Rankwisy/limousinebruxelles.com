@@ -4,7 +4,8 @@
  */
 
 export const SITE = {
-  name: 'Belgium Limousine Services',
+  name: 'Aurum — Limousine Bruxelles',   // marque complète (lockup)
+  brand: 'Aurum',                        // nom court, pour les textes courants
   domain: 'https://limousinebruxelles.com',
   email: 'info@limousinebruxelles.com',
   logo: 'img/logo-limousine-bruxelles.png',
@@ -86,8 +87,9 @@ function navbar(current) {
   const on = (href) => (current === href ? ' class="current"' : '');
   return `<nav class="nav" id="nav" aria-label="Navigation principale">
     <div class="wrap">
-      <a href="index.html" class="brand" aria-label="${SITE.name} — Accueil">
-        <img src="${SITE.logo}" alt="${SITE.name}" width="2009" height="584">
+      <a href="index.html" class="brand" aria-label="${SITE.name}, accueil">
+        <span class="brand-mark">${SITE.brand}</span>
+        <img src="${SITE.logo}" alt="Limousine Bruxelles" width="2009" height="584">
       </a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
@@ -115,7 +117,8 @@ function footer() {
     <div class="wrap">
       <div class="foot-grid">
         <div>
-          <img src="${SITE.logo}" alt="${SITE.name}" class="foot-logo" width="2009" height="584" loading="lazy">
+          <p class="brand-mark foot-brand">${SITE.brand}</p>
+          <img src="${SITE.logo}" alt="Limousine Bruxelles" class="foot-logo" width="2009" height="584" loading="lazy">
           <p>Location de limousines, voitures avec chauffeur, minivans, minibus et autocars à Bruxelles et partout en Belgique. Des chauffeurs expérimentés, des véhicules haut de gamme, un service sur mesure.</p>
           <a href="mailto:${SITE.email}" class="foot-mail"><i class="fas fa-envelope" aria-hidden="true"></i> ${SITE.email}</a>
           <p class="foot-note">Réservations et devis exclusivement par e-mail — réponse rapide, 7 jours sur 7.</p>
@@ -133,7 +136,7 @@ function footer() {
     </div>
     <div class="foot-bar">
       <div class="wrap">
-        <span>© <span data-year>2026</span> ${SITE.name} — Bruxelles, Belgique. Tous droits réservés.</span>
+        <span>© <span data-year>2026</span> ${SITE.name} · Bruxelles, Belgique. Tous droits réservés.</span>
         <ul>
           <li><a href="mentions-legales.html">Mentions légales</a></li>
           <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
@@ -154,7 +157,7 @@ export function ctaBand(title, text, primary = ['contact.html', 'Demander un dev
   return `<section class="cta-band">
     ${photo('classeS', 'Calandre d’une berline Mercedes noire de prestige avec chauffeur', { w: 1600, cls: '', sizes: '100vw' })}
     <div class="wrap">
-      <p class="eyebrow" style="justify-content:center">Belgium Limousine Services</p>
+      <p class="eyebrow" style="justify-content:center">${SITE.name}</p>
       <h2>${title}</h2>
       <p>${text}</p>
       <div class="btn-row center">
@@ -315,7 +318,7 @@ function organizationSchema() {
     '@type': ['LocalBusiness', 'LimousineService'],
     '@id': `${SITE.domain}/#organisation`,
     name: SITE.name,
-    alternateName: 'Limousine Bruxelles',
+    alternateName: ['Limousine Bruxelles', 'Aurum Limousine', 'Aurum Chauffeur Services'],
     description: 'Location de limousines, voitures avec chauffeur, minivans Mercedes, minibus et autocars VIP à Bruxelles et dans toute la Belgique.',
     url: `${SITE.domain}/`,
     email: SITE.email,
