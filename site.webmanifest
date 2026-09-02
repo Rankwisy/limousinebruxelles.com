@@ -1,0 +1,17 @@
+{
+  "name": "Belgium Limousine Services",
+  "short_name": "Limousine Bruxelles",
+  "description": "Location de limousines, minibus et autocars avec chauffeur à Bruxelles et en Belgique.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0C",
+  "theme_color": "#0A0A0C",
+  "lang": "fr-BE",
+  "icons": [
+    {
+      "src": "/img/logo-limousine-bruxelles.png",
+      "sizes": "2009x584",
+      "type": "image/png"
+    }
+  ]
+}
