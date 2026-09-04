@@ -257,21 +257,25 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 }
 
 /* ---- Sélecteur de langue (drapeaux SVG : les emoji drapeaux ne rendent pas sous Windows) ---- */
-.lang { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.lang a {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 8px 12px; border: 1px solid var(--line-dark); border-radius: var(--r-sm);
-  font-size: .74rem; font-weight: 500; letter-spacing: .12em; color: var(--on-dark-2);
-  transition: border-color .25s var(--ease), color .25s var(--ease), background .25s var(--ease);
+/* Les deux drapeaux se suivent directement, dans un seul cadre. */
+.lang {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px; border: 1px solid var(--line-dark); border-radius: var(--r-sm);
 }
-.lang a:hover { border-color: var(--gold); color: var(--gold); }
-.lang a[aria-current] { border-color: var(--gold); color: var(--gold); background: rgba(201,169,97,.12); }
-.flag-wrap { display: flex; width: 21px; height: 15px; border-radius: 2px; overflow: hidden; flex: none; }
-.flag-wrap .flag { display: block; width: 21px; height: 15px; }
+.lang a {
+  display: flex; align-items: center; justify-content: center;
+  width: 48px; height: 44px; border-radius: 3px; opacity: .5;
+  transition: opacity .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease);
+}
+.lang a:hover { opacity: 1; background: rgba(255,255,255,.06); }
+.lang a[aria-current] { opacity: 1; box-shadow: inset 0 0 0 1px var(--gold); background: rgba(201,169,97,.14); }
+.lang .flag { display: block; width: 26px; height: 18px; border-radius: 2px; }
 .nav-lang { padding: 18px 4px 6px; }
 @media (min-width: 1024px) {
   .nav-lang { padding: 0; margin-left: 10px; }
-  .lang a { padding: 7px 10px; font-size: .7rem; }
+  /* Cible souris : on peut resserrer par rapport au tactile. */
+  .lang a { width: 34px; height: 26px; }
+  .lang .flag { width: 22px; height: 15px; }
 }
 
 .skip {

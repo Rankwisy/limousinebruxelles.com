@@ -41,14 +41,15 @@ const FLAGS = {
   us: `<svg class="flag" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="2" fill="#fff"/><g fill="#B31942"><rect y="0" width="21" height="1.15"/><rect y="2.3" width="21" height="1.15"/><rect y="4.6" width="21" height="1.15"/><rect y="6.9" width="21" height="1.15"/><rect y="9.2" width="21" height="1.15"/><rect y="11.5" width="21" height="1.15"/><rect y="13.8" width="21" height="1.15"/></g><rect width="9" height="8.05" fill="#0A3161"/><g fill="#fff"><circle cx="1.9" cy="1.6" r=".5"/><circle cx="4.5" cy="1.6" r=".5"/><circle cx="7.1" cy="1.6" r=".5"/><circle cx="3.2" cy="3.2" r=".5"/><circle cx="5.8" cy="3.2" r=".5"/><circle cx="1.9" cy="4.8" r=".5"/><circle cx="4.5" cy="4.8" r=".5"/><circle cx="7.1" cy="4.8" r=".5"/><circle cx="3.2" cy="6.4" r=".5"/><circle cx="5.8" cy="6.4" r=".5"/></g><rect width="21" height="15" rx="2" fill="none" stroke="rgba(0,0,0,.18)"/></svg>`,
 };
 
-/** Sélecteur de langue : drapeau + code, une entrée par langue. */
+/** Sélecteur de langue : les deux drapeaux côte à côte, sans libellé entre eux.
+ *  Le nom de la langue reste accessible via title + aria-label. */
 function langSwitcher(L, slug) {
   const key = keyOf(L, slug) || 'home';
   const items = LOCALES.map((o) => {
     const current = o.code === L.code;
     const href = current ? link(L, key) : crossLink(L, o, key);
     return `<a href="${href}" hreflang="${o.lang}" lang="${o.lang}"${current ? ' aria-current="true"' : ''}
-            title="${esc(o.label)}"><span class="flag-wrap">${FLAGS[o.flag]}</span><span>${o.shortLabel}</span></a>`;
+            title="${esc(o.label)}" aria-label="${esc(o.label)}">${FLAGS[o.flag]}</a>`;
   }).join('\n        ');
   return `<div class="lang" role="group" aria-label="${esc(L.ui.langLabel)}">\n        ${items}\n      </div>`;
 }
