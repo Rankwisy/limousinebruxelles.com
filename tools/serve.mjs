@@ -9,7 +9,8 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
 
 createServer(async (req, res) => {
   const path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
-  const rel = normalize(path === '/' ? 'index.html' : path.replace(/^\/+/, ''));
+  // Un chemin de dossier sert son index.html, comme le feraient Netlify ou Cloudflare Pages.
+  const rel = normalize((path.endsWith('/') ? `${path}index.html` : path).replace(/^\/+/, ''));
   if (rel.startsWith('..')) { res.writeHead(403).end('Forbidden'); return; }
   try {
     const body = await readFile(join(ROOT, rel));
