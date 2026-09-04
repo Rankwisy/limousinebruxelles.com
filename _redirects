@@ -26,11 +26,9 @@
 /politique-de-confidentialite      /politique-de-confidentialite.html                          301!
 
 # Raccourcis anglais
-/en                                /en/                                     301!
+# NE PAS ajouter de règle « /en -> /en/ » : Netlify considère /en et /en/ comme
+# le même chemin, la règle se déclenche donc sur sa propre cible et boucle en 301.
+# /en/ est servi nativement depuis /en/index.html.
 /english                           /en/                                     301!
-/en/services                       /en/services.html                      301!
-/en/fleet                          /en/fleet.html                         301!
-/en/rates                          /en/rates.html                         301!
-/en/contact                        /en/contact.html                       301!
 /en/bus-rental                     /en/bus-rental-belgium.html                      301!
 /en/airport-transfer               /en/brussels-airport-transfer.html                    301!

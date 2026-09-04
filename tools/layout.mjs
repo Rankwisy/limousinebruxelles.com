@@ -391,7 +391,7 @@ export function layout(L, { slug, title, description, keywords = '', body, schem
   <link rel="preload" as="image" href="${ogImg}" fetchpriority="high">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="${L.up}css/style.css">
+  <link rel="stylesheet" href="${L.up}css/style.css?v=${SITE.v?.css || 'dev'}">
 
   <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 </head>
@@ -414,7 +414,7 @@ ${body}
 
   ${footer(L)}
 
-  <script src="${L.up}js/main.js" defer></script>
+  <script src="${L.up}js/main.js?v=${SITE.v?.js || 'dev'}" defer></script>
 </body>
 </html>
 `;

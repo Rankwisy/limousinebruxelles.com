@@ -259,7 +259,7 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 /* ---- Sélecteur de langue (drapeaux SVG : les emoji drapeaux ne rendent pas sous Windows) ---- */
 /* Les deux drapeaux se suivent directement, dans un seul cadre. */
 .lang {
-  display: inline-flex; align-items: center; gap: 4px;
+  display: inline-flex; align-items: center; gap: 4px; flex-wrap: nowrap;
   padding: 4px; border: 1px solid var(--line-dark); border-radius: var(--r-sm);
 }
 .lang a {

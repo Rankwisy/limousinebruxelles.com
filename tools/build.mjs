@@ -2,7 +2,8 @@
  * Générateur du site statique limousinebruxelles.com (fr-BE à la racine, en-US sous /en/).
  * Usage : node tools/build.mjs
  */
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE } from './site.mjs';
@@ -16,6 +17,14 @@ const write = (rel, content) => {
   writeFileSync(file, content, 'utf8');
   return rel;
 };
+
+/* ---- Empreinte des assets ----
+   Le CSS et le JS sont servis avec un cache immuable d'un an ; sans empreinte
+   dans l'URL, un visiteur déjà venu garderait l'ancienne feuille de style
+   pendant un an. Le hachage du contenu change l'URL à chaque modification. */
+const fingerprint = (rel) =>
+  createHash('sha1').update(readFileSync(join(ROOT, rel))).digest('hex').slice(0, 10);
+SITE.v = { css: fingerprint('css/style.css'), js: fingerprint('js/main.js') };
 
 /* ---- Pages ---- */
 const all = [];
@@ -193,12 +202,10 @@ write('_redirects', `# Anciennes URL WordPress -> nouvelles pages françaises
 /politique-de-confidentialite      /${frS.privacy}                          301!
 
 # Raccourcis anglais
-/en                                /en/                                     301!
+# NE PAS ajouter de règle « /en -> /en/ » : Netlify considère /en et /en/ comme
+# le même chemin, la règle se déclenche donc sur sa propre cible et boucle en 301.
+# /en/ est servi nativement depuis /en/index.html.
 /english                           /en/                                     301!
-/en/services                       /en/${enS.services}                      301!
-/en/fleet                          /en/${enS.fleet}                         301!
-/en/rates                          /en/${enS.rates}                         301!
-/en/contact                        /en/${enS.contact}                       301!
 /en/bus-rental                     /en/${enS.vehCoach}                      301!
 /en/airport-transfer               /en/${enS.svcAirport}                    301!
 `);
