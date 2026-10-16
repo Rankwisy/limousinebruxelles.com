@@ -171,7 +171,7 @@ export function amenitiesSection(L) {
         <p class="lead">${a.lead}</p>
       </div>
       <ul class="amen rv">
-        ${a.items.map(([i, t, d]) => `<li><i class="fas fa-${i}" aria-hidden="true"></i><h4>${t}</h4><p>${d}</p></li>`).join('\n        ')}
+        ${a.items.map(([i, t, d]) => `<li><i class="fas fa-${i}" aria-hidden="true"></i><h3>${t}</h3><p>${d}</p></li>`).join('\n        ')}
       </ul>
     </div>
   </section>`;

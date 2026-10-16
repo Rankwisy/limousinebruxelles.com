@@ -102,7 +102,7 @@ function navbar(L, slug) {
 /* ---------- Pied de page ---------- */
 function footer(L) {
   const col = (title, links) =>
-    `<div><h4>${title}</h4><ul>${links.map(([k, t]) => `<li><a href="${link(L, k)}">${t}</a></li>`).join('')}</ul></div>`;
+    `<div><h3>${title}</h3><ul>${links.map(([k, t]) => `<li><a href="${link(L, k)}">${t}</a></li>`).join('')}</ul></div>`;
 
   return `<footer class="foot">
     <div class="wrap">

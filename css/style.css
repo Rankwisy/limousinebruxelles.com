@@ -76,7 +76,7 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.2; 
 h1 { font-size: clamp(2.35rem, 6.2vw, 4.35rem); font-weight: 400; line-height: 1.14; }
 h2 { font-size: clamp(1.95rem, 4.4vw, 3.05rem); }
 h3 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); }
-h4 { font-size: 1.12rem; font-weight: 600; font-family: var(--sans); letter-spacing: .01em; }
+h4, .amen h3, .foot h3 { font-size: 1.12rem; font-weight: 600; font-family: var(--sans); letter-spacing: .01em; }
 p  { margin-bottom: 1rem; }
 p:last-child { margin-bottom: 0; }
 strong { font-weight: 600; }
@@ -383,7 +383,7 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 .amen li { background: var(--ink-2); padding: 32px 28px; transition: background .35s var(--ease); }
 .amen li:hover { background: var(--ink-3); }
 .amen i { color: var(--gold); font-size: 1.35rem; margin-bottom: 16px; display: block; }
-.amen h4 { color: var(--on-dark); margin-bottom: 7px; }
+.amen h3 { color: var(--on-dark); margin-bottom: 7px; }
 .amen p { color: var(--on-dark-2); font-size: .88rem; }
 
 /* ---- 13. TARIFS ---- */
@@ -520,7 +520,7 @@ table.cmp tbody tr:hover { background: var(--bone); }
 .foot .brand-mark { font-size: 1.35rem; margin-bottom: 7px; display: block; }
 .foot img.foot-logo { height: 26px; width: auto; margin-bottom: 22px; }
 .foot p { font-size: .9rem; color: var(--on-dark-2); }
-.foot h4 { color: var(--white); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
+.foot h3 { color: var(--white); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
 .foot ul li { margin-bottom: 11px; }
 .foot ul a { font-size: .89rem; color: var(--on-dark-2); transition: color .25s, padding-left .25s; }
 .foot ul a:hover { color: var(--gold); padding-left: 5px; }
