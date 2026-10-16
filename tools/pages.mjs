@@ -3,7 +3,8 @@ import { SITE, photo, layout, ctaBand, trustBar, faqSection, faqSchema, breadcru
 import { hero, choiceSection, servicesSection, fleetSection, driversSection, pricingSection, amenitiesSection, whySection, contactSection, cardGrid } from './blocks.mjs';
 import { link, absUrl, keyOf } from './locales.mjs';
 
-const ALL_KEYS = ['svcChauffeur', 'svcLimo', 'svcAirport', 'svcWedding', 'svcVip', 'svcEvent', 'vehMinibus', 'vehCoach', 'vehVclass', 'vehSclass', 'rates', 'drivers'];
+const ALL_KEYS = ['svcChauffeur', 'svcLimo', 'svcAirport', 'svcWedding', 'svcVip', 'svcEvent', 'vehMinibus', 'vehCoach', 'vehVclass', 'vehSclass', 'svcExcursion', 'rates', 'drivers'];
+const keysFor = (L) => ALL_KEYS.filter((k) => L.slugs[k]);
 
 /* ---------- Accueil ---------- */
 function homePage(L) {
@@ -125,7 +126,7 @@ function landing(L, def) {
 
   ${faqSection(L, def.faq, { dark: false })}
   ${contactSection(L, { title: `${L.ui.quote}: ${def.serviceName}`, subject: `${def.serviceName} — ${L.code.toUpperCase()}` })}
-  ${relatedTags(L, L.ui.relatedTitle, ALL_KEYS.filter((k) => k !== key))}
+  ${relatedTags(L, L.ui.relatedTitle, keysFor(L).filter((k) => k !== key))}
   ${ctaBand(L, L.ctaBand.landingTitle, L.ctaBand.landingText)}`;
 
   return layout(L, {
@@ -230,7 +231,7 @@ function contactPage(L) {
     </div>
   </section>
   ${faqSection(L, p.faq, { dark: true })}
-  ${relatedTags(L, p.relatedTitle, ALL_KEYS)}`;
+  ${relatedTags(L, p.relatedTitle, keysFor(L))}`;
   return hubShell(L, { ...p, eyebrowOverride: L.contactSec.eyebrow }, 'contact', inner, [
     faqSchema(p.faq),
     { '@type': 'ContactPage', '@id': `${absUrl(L, L.slugs.contact)}#contact` },
@@ -267,7 +268,7 @@ function thanksPage(L) {
       </div>
     </div>
   </section>
-  ${relatedTags(L, p.relatedTitle, ALL_KEYS)}`;
+  ${relatedTags(L, p.relatedTitle, keysFor(L))}`;
 
   return layout(L, { slug: L.slugs.thanks, title: p.title, description: p.description, body, noindex: true });
 }

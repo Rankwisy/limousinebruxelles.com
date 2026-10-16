@@ -481,6 +481,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://limousinebruxelles.com/es/excursion-brujas-gante-desde-bruselas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://limousinebruxelles.com/es/excursion-brujas-gante-desde-bruselas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://limousinebruxelles.com/es/excursion-brujas-gante-desde-bruselas.html"/>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://limousinebruxelles.com/es/mercedes-clase-v-con-conductor.html</loc>
     <xhtml:link rel="alternate" hreflang="fr-BE" href="https://limousinebruxelles.com/mercedes-classe-v-avec-chauffeur.html"/>
     <xhtml:link rel="alternate" hreflang="en-US" href="https://limousinebruxelles.com/en/mercedes-v-class-chauffeur.html"/>

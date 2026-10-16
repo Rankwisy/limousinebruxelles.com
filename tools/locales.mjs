@@ -49,3 +49,12 @@ export function keyOf(L, slug) {
 /** URL absolue canonique. */
 export const absUrl = (L, slug) =>
   `https://limousinebruxelles.com/${L.base}${slug === 'index.html' ? '' : slug}`;
+
+/** Versions hreflang d'une page : seules les langues qui la possèdent ; x-default = la première. */
+export function alternates(key) {
+  const have = LOCALES.filter((o) => o.slugs[key]);
+  return {
+    alts: have.map((o) => [o.lang, absUrl(o, o.slugs[key])]),
+    xdefault: absUrl(have[0], have[0].slugs[key]),
+  };
+}

@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE } from './site.mjs';
-import { LOCALES, absUrl, keyOf } from './locales.mjs';
+import { LOCALES, absUrl, keyOf, alternates } from './locales.mjs';
 import { pagesFor } from './pages.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -39,9 +39,9 @@ for (const L of LOCALES) {
 const today = new Date().toISOString().slice(0, 10);
 const urls = all.filter((p) => !p.noindex).map((p) => {
   const key = keyOf(p.locale, p.slug);
-  const alts = key
-    ? LOCALES.map((o) => `    <xhtml:link rel="alternate" hreflang="${o.lang}" href="${absUrl(o, o.slugs[key])}"/>`).join('\n')
-      + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${absUrl(LOCALES[0], LOCALES[0].slugs[key])}"/>`
+  const { alts: versions, xdefault } = key ? alternates(key) : { alts: [] };
+  const alts = versions.length
+    ? [...versions, ['x-default', xdefault]].map(([l, u]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${u}"/>`).join('\n')
     : '';
   return `  <url>
     <loc>${absUrl(p.locale, p.slug)}</loc>

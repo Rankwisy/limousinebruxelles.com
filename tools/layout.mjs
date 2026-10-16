@@ -4,7 +4,7 @@
  * Génération : `node tools/build.mjs`
  */
 import { SITE, PHOTOS } from './site.mjs';
-import { LOCALES, link, crossLink, keyOf, absUrl } from './locales.mjs';
+import { LOCALES, link, crossLink, keyOf, absUrl, alternates as pageAlternates } from './locales.mjs';
 
 export { SITE };
 
@@ -339,9 +339,9 @@ export function layout(L, { slug, title, description, keywords = '', body, schem
   const key = keyOf(L, slug);
   const ogImg = photoUrl('hero');
 
-  const alternates = key
-    ? LOCALES.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${absUrl(o, o.slugs[key])}">`).join('\n  ')
-      + `\n  <link rel="alternate" hreflang="x-default" href="${absUrl(LOCALES[0], LOCALES[0].slugs[key])}">`
+  const { alts, xdefault } = key ? pageAlternates(key) : { alts: [] };
+  const alternates = alts.length
+    ? [...alts, ['x-default', xdefault]].map(([l, u]) => `<link rel="alternate" hreflang="${l}" href="${u}">`).join('\n  ')
     : '';
 
   const graph = [organizationSchema(L), {

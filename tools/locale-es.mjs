@@ -29,6 +29,7 @@ export default {
     svcWedding: 'transporte-bodas-bruselas.html',
     svcVip: 'transporte-vip-bruselas.html',
     svcEvent: 'transporte-grupos-eventos-bruselas.html',
+    svcExcursion: 'excursion-brujas-gante-desde-bruselas.html',
     vehVclass: 'mercedes-clase-v-con-conductor.html',
     vehSclass: 'mercedes-clase-s-con-conductor.html',
     vehMinibus: 'alquiler-minibus-bruselas.html',
@@ -107,6 +108,7 @@ export default {
     ['svcWedding', 'ring', 'Transporte para bodas', 'Novios, familia e invitados'],
     ['svcVip', 'star', 'Transporte VIP', 'Discreción y puntualidad absolutas'],
     ['svcEvent', 'calendar-check', 'Eventos y grupos', 'Congresos, incentivos, giras'],
+    ['svcExcursion', 'mountain-sun', 'Excursiones desde Bruselas', 'Brujas, Gante, Amberes y Lovaina'],
   ],
 
   fleetNav: [
@@ -286,7 +288,7 @@ export default {
 
   home: {
     eyebrow: 'Bruselas · Bélgica',
-    h1: '<em>Limusina</em>, minibús y autocar con chófer en Bruselas',
+    h1: '<em>Limusina</em>, minibús y autobús con chófer en Bruselas',
     sub: 'Viaje con elegancia, comodidad y seguridad por toda Bélgica.',
     heroAlt: 'Mercedes Clase S negro con chófer aparcado en una calle adoquinada de Bruselas',
     stats: [['1–50', 'Pasajeros'], ['7 días', 'A la semana'], ['24 h', 'Respuesta al presupuesto'], ['100 %', 'Chóferes profesionales']],
@@ -307,8 +309,8 @@ export default {
       'Aeropuertos: Zaventem (BRU), Charleroi (CRL), Lieja, Amberes, Lila, Schiphol',
       'Francia, Países Bajos, Luxemburgo y Alemania, bajo petición',
     ],
-    title: 'Alquiler de Autocar y Limusina con Chófer en Bruselas',
-    description: 'Alquiler de autocar, minibús y limusina con chófer en Bruselas. Traslados al aeropuerto, bodas y grupos en toda Bélgica. Presupuesto gratuito en español.',
+    title: 'Alquiler de Autobús y Autocar con Chófer en Bruselas',
+    description: 'Alquiler de autobús, autocar, minibús y limusina con chófer en Bruselas. Traslados al aeropuerto, bodas y grupos en toda Bélgica. Presupuesto gratis.',
     keywords: 'alquiler autocar Bruselas, alquiler autobús con conductor Bélgica, limusina con conductor Bruselas, chófer privado Bruselas, traslado aeropuerto Bruselas, alquiler minibús Bruselas, transporte de grupos Bruselas, Mercedes Clase V con conductor, Mercedes Clase S con conductor',
   },
 };
