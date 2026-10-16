@@ -1,5 +1,5 @@
 /**
- * Générateur du site statique limousinebruxelles.com (fr-BE à la racine, en-US sous /en/).
+ * Générateur du site statique limousinebruxelles.com (fr-BE à la racine, en-US sous /en/, es-ES sous /es/).
  * Usage : node tools/build.mjs
  */
 import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
@@ -90,6 +90,9 @@ Sitemap: ${SITE.domain}/sitemap.xml
 /* ---- llms.txt : résumé factuel pour les moteurs de réponse ---- */
 const en = LOCALES.find((L) => L.code === 'en');
 const fr = LOCALES.find((L) => L.code === 'fr');
+const es = LOCALES.find((L) => L.code === 'es');
+const esLinks = [...es.landings, ...es.vehicles]
+  .map((d) => `- [${d.serviceName}](${SITE.domain}/es/${d.slug}): ${d.sub}`).join('\n');
 const enLinks = [...en.landings, ...en.vehicles]
   .map((d) => `- [${d.serviceName}](${SITE.domain}/en/${d.slug}): ${d.sub}`).join('\n');
 
@@ -99,7 +102,7 @@ write('llms.txt', `# ${SITE.name}
 > chauffeurs, Mercedes V-Class minivans, minibuses and motorcoaches (buses) with
 > a professional driver. Serving Brussels and the whole of Belgium, with airport
 > transfers, weddings, VIP travel, conferences and group transportation.
-> Quotes and bookings in English or French, by email.
+> Quotes and bookings in English, French or Spanish, by email.
 
 ## Key facts
 
@@ -131,6 +134,16 @@ ${enLinks}
 - [Notre flotte](${SITE.domain}/${fr.slugs.fleet})
 - [Tarifs](${SITE.domain}/${fr.slugs.rates})
 - [Contact](${SITE.domain}/${fr.slugs.contact})
+
+## Spanish pages (español, España)
+
+- [Inicio: alquiler de autocar, minibús y limusina con chófer en Bruselas](${SITE.domain}/es/)
+- [Servicios](${SITE.domain}/es/${es.slugs.services})
+- [Flota](${SITE.domain}/es/${es.slugs.fleet})
+- [Chóferes](${SITE.domain}/es/${es.slugs.drivers})
+- [Tarifas](${SITE.domain}/es/${es.slugs.rates})
+- [Contacto y presupuesto](${SITE.domain}/es/${es.slugs.contact})
+${esLinks}
 `);
 
 /* ---- Manifeste ---- */
@@ -173,7 +186,7 @@ write('_headers', `/*
 `);
 
 /* ---- Redirections ---- */
-const frS = fr.slugs, enS = en.slugs;
+const frS = fr.slugs, enS = en.slugs, esS = es.slugs;
 write('_redirects', `# Anciennes URL WordPress -> nouvelles pages françaises
 /home                              /                                        301!
 /index.php                         /                                        301!
@@ -208,6 +221,11 @@ write('_redirects', `# Anciennes URL WordPress -> nouvelles pages françaises
 /english                           /en/                                     301!
 /en/bus-rental                     /en/${enS.vehCoach}                      301!
 /en/airport-transfer               /en/${enS.svcAirport}                    301!
+
+# Raccourcis espagnols (même remarque : pas de règle « /es -> /es/ »)
+/espanol                           /es/                                     301!
+/es/alquiler-autobus-belgica       /es/${esS.vehCoach}                      301!
+/es/traslado-aeropuerto            /es/${esS.svcAirport}                    301!
 `);
 
 const indexable = all.filter((p) => !p.noindex).length;

@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /merci.html
 Disallow: /en/thank-you.html
+Disallow: /es/gracias.html
 
 # Assistants IA et moteurs de réponse — explicitement autorisés.
 User-agent: GPTBot

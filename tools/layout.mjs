@@ -39,6 +39,7 @@ export function photoUrl(key, w = 1600) {
 const FLAGS = {
   be: `<svg class="flag" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="2" fill="#2D2A26"/><path fill="#FFD450" d="M7 0h7v15H7z"/><path fill="#C8102E" d="M14 0h7v15h-7z"/><rect width="21" height="15" rx="2" fill="none" stroke="rgba(255,255,255,.25)"/></svg>`,
   us: `<svg class="flag" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="2" fill="#fff"/><g fill="#B31942"><rect y="0" width="21" height="1.15"/><rect y="2.3" width="21" height="1.15"/><rect y="4.6" width="21" height="1.15"/><rect y="6.9" width="21" height="1.15"/><rect y="9.2" width="21" height="1.15"/><rect y="11.5" width="21" height="1.15"/><rect y="13.8" width="21" height="1.15"/></g><rect width="9" height="8.05" fill="#0A3161"/><g fill="#fff"><circle cx="1.9" cy="1.6" r=".5"/><circle cx="4.5" cy="1.6" r=".5"/><circle cx="7.1" cy="1.6" r=".5"/><circle cx="3.2" cy="3.2" r=".5"/><circle cx="5.8" cy="3.2" r=".5"/><circle cx="1.9" cy="4.8" r=".5"/><circle cx="4.5" cy="4.8" r=".5"/><circle cx="7.1" cy="4.8" r=".5"/><circle cx="3.2" cy="6.4" r=".5"/><circle cx="5.8" cy="6.4" r=".5"/></g><rect width="21" height="15" rx="2" fill="none" stroke="rgba(0,0,0,.18)"/></svg>`,
+  es: `<svg class="flag" viewBox="0 0 21 15" width="21" height="15" aria-hidden="true" focusable="false"><rect width="21" height="15" rx="2" fill="#C60B1E"/><rect y="3.75" width="21" height="7.5" fill="#FFC400"/><rect width="21" height="15" rx="2" fill="none" stroke="rgba(255,255,255,.25)"/></svg>`,
 };
 
 /** Sélecteur de langue : les deux drapeaux côte à côte, sans libellé entre eux.
@@ -297,9 +298,11 @@ function organizationSchema(L) {
     '@id': `${SITE.domain}/#organisation`,
     name: SITE.name,
     alternateName: ['Limousine Bruxelles', 'Aurum Limousine', 'Aurum Chauffeur Services'],
-    description: L.code === 'en'
-      ? 'Limousine, private chauffeur, minivan, minibus and bus rental with driver in Brussels and throughout Belgium.'
-      : 'Location de limousines, voitures avec chauffeur, minivans Mercedes, minibus et autocars VIP à Bruxelles et dans toute la Belgique.',
+    description: {
+      en: 'Limousine, private chauffeur, minivan, minibus and bus rental with driver in Brussels and throughout Belgium.',
+      es: 'Alquiler de limusinas, coches con chófer, monovolúmenes, minibuses y autocares con conductor en Bruselas y en toda Bélgica.',
+      fr: 'Location de limousines, voitures avec chauffeur, minivans Mercedes, minibus et autocars VIP à Bruxelles et dans toute la Belgique.',
+    }[L.code],
     url: `${SITE.domain}/`,
     email: SITE.email,
     logo: `${SITE.domain}/${SITE.logo}`,
@@ -311,6 +314,7 @@ function organizationSchema(L) {
     availableLanguage: [
       { '@type': 'Language', name: 'French', alternateName: 'fr' },
       { '@type': 'Language', name: 'English', alternateName: 'en' },
+      { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
       { '@type': 'Language', name: 'Dutch', alternateName: 'nl' },
     ],
     openingHoursSpecification: {

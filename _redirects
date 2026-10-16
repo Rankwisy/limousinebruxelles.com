@@ -32,3 +32,8 @@
 /english                           /en/                                     301!
 /en/bus-rental                     /en/bus-rental-belgium.html                      301!
 /en/airport-transfer               /en/brussels-airport-transfer.html                    301!
+
+# Raccourcis espagnols (même remarque : pas de règle « /es -> /es/ »)
+/espanol                           /es/                                     301!
+/es/alquiler-autobus-belgica       /es/alquiler-autocar-belgica.html                      301!
+/es/traslado-aeropuerto            /es/traslado-aeropuerto-bruselas.html                    301!
